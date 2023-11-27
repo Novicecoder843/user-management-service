@@ -1,0 +1,12 @@
+service: user-management-service
+provider:
+  name: aws
+  runtime: nodejs14.x
+  # ... other provider configs
+
+functions:
+  app:
+    handler: src/index.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
